@@ -1,18 +1,27 @@
 package main
 
 import (
+	"fmt"
 	"os"
-
-	"github.com/gin-gonic/gin"
-	"github.com/joho/godotenv"
 )
 
+var (
+	Root string
+)
+
+func init() {
+	if root, err := os.Getwd(); err != nil {
+		panic(err)
+	} else {
+		Root = root
+	}
+}
+
 func main() {
-	err := godotenv.Load()
+	// RunServer()
+	json, err := GetJson()
 	if err != nil {
 		panic(err)
 	}
-	port := os.Getenv("PORT")
-	r := gin.Default()
-	r.Run(port)
+	fmt.Println(json)
 }
