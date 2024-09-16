@@ -18,10 +18,12 @@ func init() {
 }
 
 func main() {
-	// RunServer()
-	json, err := GetJson()
-	if err != nil {
-		panic(err)
+	var port string
+	if len(os.Args) > 1 {
+		port = os.Args[1]
+	} else {
+		port = ":3000"
 	}
-	fmt.Println(json)
+	fmt.Println("JMS is run on http://localhost" + port)
+	RunServer(port)
 }
