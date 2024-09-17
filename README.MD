@@ -22,7 +22,7 @@ JsonMockServer (jms) is a Go application built with the Gin framework that autom
 ## Installation
 
 ### Releases 
-You can download from Releases and then run:
+You can download from [Releases](https://github.com/Shahryar-Pirooz/jms/releases/tag/v0.1.0-beta) and then run:
 
 ```
 ./jms [:PORT]
@@ -33,7 +33,7 @@ You can download from Releases and then run:
 To install jms, make sure you have Go installed on your system, then run:
 
 ```
-git clone github.com/Shahryar-Pirooz/JMS
+git clone github.com/Shahryar-Pirooz/jms
 go run . [:PORT]
 
 ```
