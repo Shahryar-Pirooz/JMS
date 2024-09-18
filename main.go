@@ -9,6 +9,7 @@ var (
 	Root string
 )
 
+// init initializes the Root variable with the current working directory
 func init() {
 	if root, err := os.Getwd(); err != nil {
 		panic(err)
@@ -17,6 +18,8 @@ func init() {
 	}
 }
 
+// main is the entry point of the application
+// It determines the port to run the server on and starts the server
 func main() {
 	var port string
 	if len(os.Args) > 1 {

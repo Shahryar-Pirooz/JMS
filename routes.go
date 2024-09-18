@@ -8,6 +8,8 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// RouteCreator sets up the GET and POST routes for the Gin engine
+// It prints the endpoints and associates them with the appropriate handler functions
 func RouteCreator(json JSON, g *gin.Engine) {
 	fmt.Println("Your GET endpoints :")
 	for _, dir := range json.GET {

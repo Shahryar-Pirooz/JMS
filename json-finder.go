@@ -15,6 +15,7 @@ var (
 	jsonAddress JSON
 )
 
+// isContains checks if a string is present in a slice of strings
 func isContains(arr []string, item string) bool {
 	for _, str := range arr {
 		if str == item {
@@ -24,6 +25,8 @@ func isContains(arr []string, item string) bool {
 	return false
 }
 
+// walkFunc is used with filepath.Walk to process each file and directory
+// It identifies JSON files for GET and POST requests and adds them to jsonAddress
 func walkFunc(path string, info fs.FileInfo, err error) error {
 	if err != nil {
 		return err
@@ -38,12 +41,13 @@ func walkFunc(path string, info fs.FileInfo, err error) error {
 			if !isContains(jsonAddress.GET, path) {
 				jsonAddress.GET = append(jsonAddress.GET, path)
 			}
-
 		}
 	}
 	return nil
 }
 
+// Walker traverses the directory structure starting from Root
+// It collects paths to GET and POST JSON files and returns them in a JSON struct
 func Walker() JSON {
 	err := filepath.Walk(Root, walkFunc)
 	if err != nil {
