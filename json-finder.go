@@ -33,6 +33,7 @@ func walkFunc(path string, info fs.FileInfo, err error) error {
 	}
 	if !info.IsDir() {
 		// Normalize path to use forward slashes
+		path = strings.TrimPrefix(path, Root)
 		path = filepath.ToSlash(path)
 
 		if strings.HasSuffix(info.Name(), "_post.json") {
