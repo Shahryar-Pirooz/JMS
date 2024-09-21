@@ -32,6 +32,9 @@ func walkFunc(path string, info fs.FileInfo, err error) error {
 		return err
 	}
 	if !info.IsDir() {
+		// Normalize path to use forward slashes
+		path = filepath.ToSlash(path)
+
 		if strings.HasSuffix(info.Name(), "_post.json") {
 			if !isContains(jsonAddress.POST, path) {
 				jsonAddress.POST = append(jsonAddress.POST, path)
